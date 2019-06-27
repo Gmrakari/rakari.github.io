@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="树的遍历（文末附有C语言实现方法）因为要复习，顺便把这个贴出来，以便应急之需，但是文字可能比较蹩脚刚开始学树的遍历的时候，遇到很多瓶颈，但是只能通过看csdn里面的例题，况且那些资料又不统一，导致要理解花费太多时间，现在为了减少后学者遇到的麻烦，我这里详细说下怎么解树的遍历问题 一般有两种形式：1、已知先序遍历和中序遍历——求后序遍历2、已知中序遍历和后序遍历——求先序遍历我先总结一下两种形式的方">
+<meta name="keywords" content="Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树的遍历问题">
+<meta property="og:url" content="www.rakari.top/2018/10/02/tree_traversal/index.html">
+<meta property="og:site_name" content="I hate everyone but you">
+<meta property="og:description" content="树的遍历（文末附有C语言实现方法）因为要复习，顺便把这个贴出来，以便应急之需，但是文字可能比较蹩脚刚开始学树的遍历的时候，遇到很多瓶颈，但是只能通过看csdn里面的例题，况且那些资料又不统一，导致要理解花费太多时间，现在为了减少后学者遇到的麻烦，我这里详细说下怎么解树的遍历问题 一般有两种形式：1、已知先序遍历和中序遍历——求后序遍历2、已知中序遍历和后序遍历——求先序遍历我先总结一下两种形式的方">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_first_round.png">
+<meta property="og:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_second_round.png">
+<meta property="og:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_third_round.png">
+<meta property="og:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_first_round.png">
+<meta property="og:image" content="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_second_round.png">
+<meta property="og:image" content="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_third_round.png">
+<meta property="og:image" content="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_fourth_round.png">
+<meta property="og:updated_time" content="2018-10-04T06:20:07.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树的遍历问题">
+<meta name="twitter:description" content="树的遍历（文末附有C语言实现方法）因为要复习，顺便把这个贴出来，以便应急之需，但是文字可能比较蹩脚刚开始学树的遍历的时候，遇到很多瓶颈，但是只能通过看csdn里面的例题，况且那些资料又不统一，导致要理解花费太多时间，现在为了减少后学者遇到的麻烦，我这里详细说下怎么解树的遍历问题 一般有两种形式：1、已知先序遍历和中序遍历——求后序遍历2、已知中序遍历和后序遍历——求先序遍历我先总结一下两种形式的方">
+<meta name="twitter:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_first_round.png">
+
+
+
+
+
+
+  <link rel="canonical" href="www.rakari.top/2018/10/02/tree_traversal/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>树的遍历问题 | I hate everyone but you</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">I hate everyone but you</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">hou ji bo fa</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="www.rakari.top/2018/10/02/tree_traversal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rakari">
+      <meta itemprop="description" content="hou ji bo fa">
+      <meta itemprop="image" content="/images/shadow_avator.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="I hate everyone but you">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">树的遍历问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-02 14:29:21" itemprop="dateCreated datePublished" datetime="2018-10-02T14:29:21+08:00">2018-10-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-04 14:20:07" itemprop="dateModified" datetime="2018-10-04T14:20:07+08:00">2018-10-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="树的遍历（文末附有C语言实现方法）"><a href="#树的遍历（文末附有C语言实现方法）" class="headerlink" title="树的遍历（文末附有C语言实现方法）"></a>树的遍历（文末附有C语言实现方法）</h1><p>因为要复习，顺便把这个贴出来，以便应急之需，但是文字可能比较蹩脚<br>刚开始学树的遍历的时候，遇到很多瓶颈，但是只能通过看csdn里面的例题，况且那些资料又不统一，导致要理解花费太多时间，现在为了减少后学者遇到的麻烦，我这里详细说下怎么解树的遍历问题</p>
+<p>一般有两种形式：<br>1、已知先序遍历和中序遍历——求后序遍历<br>2、已知中序遍历和后序遍历——求先序遍历<br>我先总结一下两种形式的方法，后面再详细用我的课本里面的习题讲解<br><strong>不管是哪种方法，都是需要先找到树的根</strong><br>前+中 ：在前序中第一个就是根<br>后+中：后序遍历中最后一个结点都是根，一层一层往上找</p>
+<p>如果上面这两句不明白的话，我们继续用我在校使用教材的一道课后练习题来解释一下</p>
+<h2 id="已知先序遍历和中序遍历——求后序遍历"><a href="#已知先序遍历和中序遍历——求后序遍历" class="headerlink" title="已知先序遍历和中序遍历——求后序遍历"></a>已知先序遍历和中序遍历——求后序遍历</h2><p><strong>题目：已知一棵树的先序遍历是ABDCEFG,中序遍历是BDACFEG，则该二叉树的后序遍历是?</strong><br>解析:<br>先序ABDCEFG<br>中序BDACFEG<br>第一轮我们在先序中找到A就是树的根，根据中序，我们就知道BD是A的左子树，CFEG是右子树<br><img src="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_first_round.png" alt="Know_DLR&amp;LDR_get_LRD_first_round.png"></p>
+<p>先序BD CEFG<br>中序 BD CFEG<br>第二轮我们在先序找到B,C为根结点；根据中序，我们就知道D为B的右子树（B的左边没有结点），FEG为C的右子树（C的左边也没有结点），这样我们的确定<br><img src="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_second_round.png" alt="Know_DLR&amp;LDR_get_LRD_second_round.png"></p>
+<p>先序 EFG<br>中序 FEG<br>第三轮我们就回到了刚开始的情形，就是用递归的方法，重新将剩下的结点遍历一次,在先序中找到E为根，然后根据中序，我们知道F是E的左子树，G是E的右子树。最后我们就可以还原了树的形状。然后我们就知道这棵树的后续遍历是DBFGECA<br><img src="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_DLR%26LDR_get_LRD_third_round.png" alt="Know_DLR&amp;LDR_get_LRD_third_round.png"></p>
+<h2 id="已知中序遍历和后序遍历——求先序遍历"><a href="#已知中序遍历和后序遍历——求先序遍历" class="headerlink" title="已知中序遍历和后序遍历——求先序遍历"></a>已知中序遍历和后序遍历——求先序遍历</h2><p><strong>题目:已知一棵树的中序遍历DHEBAFGC,后序遍历是DHEBGFCA,则该二叉树的先序遍历是?</strong><br>解析:<br>中序DHEBAFGC<br>后序DHEBGFCA<br>首先第一轮我们在后序遍历中找到最后一个结点是A，所以A就是这颗树的根。然后根据中序，我们就知道DHEB是A的左子树，FGC是A的右子树<br><img src="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_first_round.png" alt="Know_LDR&amp;LRD_get_DLR_first_round.png"><br>中序DHEB        FGC<br>后序DHEBGFC<br>第二轮我们在后序遍历中找到A的左右子树的根结点为B和C（最后一个结点），然后根据中序遍历，我们知道DHE为B的左子树，FG为C的左子树。<br><img src="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_second_round.png" alt="Know_LDR&amp;LRD_get_DLR_second_round.png"><br>中序 DHE        FG<br>后序DHE         GF<br>第三轮我们在后序遍历中找到E，F为根结点，然后根据中序遍历，我们就知道DH为E的左子树，G为F的右子树。<br><img src="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_third_round.png" alt="Know_LDR&amp;LRD_get_DLR_third_round.png"><br>中序DH<br>后序DH<br>第四轮我们在后序遍历中找到H为根结点，然后根据中序遍历，我们知道D为H的左子树<br>最后我们根据树的图，得到树的先序遍历为ABEHDCFG<br><img src="http://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/Know_LDR%26LRD_get_DLR_fourth_round.png" alt="Know_LDR&amp;LRD_get_DLR_fourth_round.png"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiNode, *BiTree;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PosTraverse</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (T == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    PosTraverse(T-&gt;lchild);</span><br><span class="line">    PosTraverse(T-&gt;rchild);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, T-&gt;a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BuildTree</span><span class="params">(<span class="keyword">char</span> *pre, <span class="keyword">char</span>* mid, BiTree root)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(pre);</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> == len)</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">char</span> *p = <span class="built_in">strchr</span>(mid, pre[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> pos = p - mid;</span><br><span class="line">    root-&gt;a = pre[<span class="number">0</span>];</span><br><span class="line">    root-&gt;lchild = root-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (pos != <span class="number">0</span>) &#123;</span><br><span class="line">        BiTree left;</span><br><span class="line">        root-&gt;lchild = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiNode));</span><br><span class="line">        left = root-&gt;lchild;</span><br><span class="line">        <span class="keyword">char</span> *left_pre = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (pos + <span class="number">1</span>));</span><br><span class="line">        <span class="keyword">char</span> *left_mid = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (pos + <span class="number">1</span>));</span><br><span class="line">        <span class="built_in">strncpy</span>(left_pre, pre + <span class="number">1</span>, pos);</span><br><span class="line">        <span class="built_in">strncpy</span>(left_mid, mid, pos);</span><br><span class="line">        left_pre[pos] = <span class="number">0</span>;</span><br><span class="line">        left_mid[pos] = <span class="number">0</span>;</span><br><span class="line">        BuildTree(left_pre, left_mid, left);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pos != len - <span class="number">1</span>) &#123;</span><br><span class="line">        BiTree right;</span><br><span class="line">        root-&gt;rchild = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiNode));</span><br><span class="line">        right = root-&gt;rchild;</span><br><span class="line">        <span class="keyword">char</span> *right_pre = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (len - pos));</span><br><span class="line">        <span class="keyword">char</span> *right_mid = (<span class="keyword">char</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">char</span>) * (len - pos));</span><br><span class="line">        <span class="built_in">strncpy</span>(right_pre, pre + <span class="number">1</span> + pos, len - pos - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">strncpy</span>(right_mid, mid + <span class="number">1</span> + pos, len - pos - <span class="number">1</span>);</span><br><span class="line">        right_pre[len - pos - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        right_mid[len - pos - <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        BuildTree(right_pre, right_mid, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    BiNode temp;</span><br><span class="line">    BuildTree(<span class="string">"abdcefg"</span>, <span class="string">"bdacfeg"</span>, &amp;temp);</span><br><span class="line">    PosTraverse(&amp;temp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/14/my_junior_college_school_network/" rel="next" title="攻破宿舍内网">
+                <i class="fa fa-chevron-left"></i> 攻破宿舍内网
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/02/cir_queue_Q&A/" rel="prev" title="循环队列">
+                循环队列 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/shadow_avator.jpg"
+                alt="Rakari" />
+            
+              <p class="site-author-name" itemprop="name">Rakari</p>
+              <p class="site-description motion-element" itemprop="description">hou ji bo fa</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Gmrakari/rakari.github.io" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:swift.chou@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树的遍历（文末附有C语言实现方法）"><span class="nav-number">1.</span> <span class="nav-text">树的遍历（文末附有C语言实现方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#已知先序遍历和中序遍历——求后序遍历"><span class="nav-number">1.1.</span> <span class="nav-text">已知先序遍历和中序遍历——求后序遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已知中序遍历和后序遍历——求先序遍历"><span class="nav-number">1.2.</span> <span class="nav-text">已知中序遍历和后序遍历——求先序遍历</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rakari</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">
+  </div>
+
+
+
+  
+
+
+
+  <div class="theme-info">
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
