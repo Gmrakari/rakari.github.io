@@ -56,21 +56,21 @@
 
 
 
-<link href="rakari.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="rakari.github.io/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="rakari.github.io/images/apple-touch-icon-next.png?v=6.4.0">
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="rakari.github.io/images/favicon-32x32-next.png?v=6.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="rakari.github.io/images/favicon-16x16-next.png?v=6.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
 
 
-  <link rel="mask-icon" href="rakari.github.io/images/logo.svg?v=6.4.0" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
 
 
 
@@ -83,7 +83,7 @@
 <script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    root: 'rakari.github.io/',
+    root: '/',
     scheme: 'Muse',
     version: '6.4.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
@@ -112,7 +112,7 @@
 <meta name="keywords" content="Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="希尔排序">
-<meta property="og:url" content="https://gmrakari.github.io/rakari.github.io/2018/10/25/shell-sort/index.html">
+<meta property="og:url" content="https://gmrakari.github.io/2018/10/25/shell-sort/index.html">
 <meta property="og:site_name" content="I hate everyone but you">
 <meta property="og:description" content="希尔排序（文末附有C语言实现方法） 写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。 首先看一下，官方的表达 希尔排序的思想：先取定一个小于n的整数">
 <meta property="og:locale" content="zh-CN">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://gmrakari.github.io/rakari.github.io/2018/10/25/shell-sort/"/>
+  <link rel="canonical" href="https://gmrakari.github.io/2018/10/25/shell-sort/"/>
 
 
 
@@ -192,7 +192,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="rakari.github.io/" class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">I hate everyone but you</span>
         <span class="logo-line-after"><i></i></span>
@@ -225,7 +225,7 @@
         
           
           <li class="menu-item menu-item-home">
-    <a href="rakari.github.io/" rel="section">
+    <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
   </li>
         
@@ -233,7 +233,7 @@
         
           
           <li class="menu-item menu-item-tags">
-    <a href="rakari.github.io/tags/" rel="section">
+    <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
         
@@ -241,7 +241,7 @@
         
           
           <li class="menu-item menu-item-archives">
-    <a href="rakari.github.io/archives/" rel="section">
+    <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
         
@@ -249,7 +249,7 @@
         
           
           <li class="menu-item menu-item-about">
-    <a href="rakari.github.io/about/" rel="section">
+    <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
 
@@ -301,12 +301,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/rakari.github.iorakari.github.io/2018/10/25/shell-sort/">
+    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2018/10/25/shell-sort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rakari">
       <meta itemprop="description" content="hou ji bo fa">
-      <meta itemprop="image" content="rakari.github.io/images/shadow_avator.jpg">
+      <meta itemprop="image" content="/images/shadow_avator.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -420,7 +420,7 @@
       
         <div class="post-tags">
           
-            <a href="rakari.github.io/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
           
         </div>
       
@@ -433,7 +433,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="rakari.github.io/2018/10/02/cir_queue_Q&A/" rel="next" title="循环队列">
+              <a href="/2018/10/02/cir_queue_Q&A/" rel="next" title="循环队列">
                 <i class="fa fa-chevron-left"></i> 循环队列
               </a>
             
@@ -443,7 +443,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="rakari.github.io/2018/12/02/Straight_Insertion_Sort/" rel="prev" title="直接插入排序">
+              <a href="/2018/12/02/Straight_Insertion_Sort/" rel="prev" title="直接插入排序">
                 直接插入排序 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -505,7 +505,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="rakari.github.io/images/shadow_avator.jpg"
+                src="/images/shadow_avator.jpg"
                 alt="Rakari" />
             
               <p class="site-author-name" itemprop="name">Rakari</p>
@@ -517,7 +517,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="rakari.github.io/archives/">
+                  <a href="/archives/">
                 
                     <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
@@ -531,7 +531,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="rakari.github.io/tags/index.html">
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -707,42 +707,42 @@
 
   
   
-    <script type="text/javascript" src="rakari.github.io/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="rakari.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="rakari.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="rakari.github.io/js/src/utils.js?v=6.4.0"></script>
-
-  <script type="text/javascript" src="rakari.github.io/js/src/motion.js?v=6.4.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="rakari.github.io/js/src/scrollspy.js?v=6.4.0"></script>
-<script type="text/javascript" src="rakari.github.io/js/src/post-details.js?v=6.4.0"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="rakari.github.io/js/src/bootstrap.js?v=6.4.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
 
 
 
