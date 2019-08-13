@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="重拾排列 全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。 老师提供的几道往年真题/例题 1、凑算式 123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如： 6+8/3+952/714 就是一种解法， 5+3/1+972/4">
+  <meta name="description" content="重拾排列全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。老师提供的几道往年真题/例题 1、凑算式123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如：6+8/3+952/714 就是一种解法，5+3/1+972/486 是另">
 <meta name="keywords" content="Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于全排列的问题">
 <meta property="og:url" content="https://gmrakari.github.io/2019/02/08/perm/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="重拾排列 全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。 老师提供的几道往年真题/例题 1、凑算式 123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如： 6+8/3+952/714 就是一种解法， 5+3/1+972/4">
+<meta property="og:description" content="重拾排列全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。老师提供的几道往年真题/例题 1、凑算式123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如：6+8/3+952/714 就是一种解法，5+3/1+972/486 是另">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-02-08T04:23:27.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于全排列的问题">
-<meta name="twitter:description" content="重拾排列 全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。 老师提供的几道往年真题/例题 1、凑算式 123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如： 6+8/3+952/714 就是一种解法， 5+3/1+972/4">
+<meta name="twitter:description" content="重拾排列全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。老师提供的几道往年真题/例题 1、凑算式123     B      DEFA + --- + ------- = 10     C      GHI 这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。 比如：6+8/3+952/714 就是一种解法，5+3/1+972/486 是另">
 
 
 
@@ -381,30 +381,16 @@
       
 
       
-        <h1>重拾排列</h1>
-<p>全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。
-老师提供的几道往年真题/例题</p>
-<h2>1、凑算式</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     B      DEF</span><br><span class="line">A + --- + ------- = 10</span><br><span class="line">     C      GHI</span><br></pre></td></tr></table></figure></p>
+        <h1 id="重拾排列"><a href="#重拾排列" class="headerlink" title="重拾排列"></a>重拾排列</h1><p>全排列在往年的比赛题中经常出现，况且掌握其思想，通过灵活改变一下，攻破这种题，还是比较得心应手的。<br>老师提供的几道往年真题/例题</p>
+<h2 id="1、凑算式"><a href="#1、凑算式" class="headerlink" title="1、凑算式"></a>1、凑算式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     B      DEF</span><br><span class="line">A + --- + ------- = 10</span><br><span class="line">     C      GHI</span><br></pre></td></tr></table></figure>
 <p>这个算式中A~I代表1~9的数字，不同的字母代表不同的数字。</p>
-<p>比如：
-6+8/3+952/714 就是一种解法，
-5+3/1+972/486 是另一种解法。
-这个算式一共有多少种解法？</p>
-<h2>2、搭积木</h2>
-<p>小明最近喜欢搭数字积木，
-一共有10块积木，每个积木上有一个数字，0~9。</p>
-<p>搭积木规则：
-每个积木放到其它两个积木的上面，并且一定比下面的两个积木数字小。
-最后搭成4层的金字塔形，必须用完所有的积木。</p>
-<p>下面是两种合格的搭法：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   0</span><br><span class="line">  1 2</span><br><span class="line"> 3 4 5</span><br><span class="line">6 7 8 9</span><br><span class="line"></span><br><span class="line">   0</span><br><span class="line">  3 1</span><br><span class="line"> 7 5 2</span><br><span class="line">9 8 6 4</span><br></pre></td></tr></table></figure></p>
+<p>比如：<br>6+8/3+952/714 就是一种解法，<br>5+3/1+972/486 是另一种解法。<br>这个算式一共有多少种解法？</p>
+<h2 id="2、搭积木"><a href="#2、搭积木" class="headerlink" title="2、搭积木"></a>2、搭积木</h2><p>小明最近喜欢搭数字积木，<br>一共有10块积木，每个积木上有一个数字，0~9。</p>
+<p>搭积木规则：<br>每个积木放到其它两个积木的上面，并且一定比下面的两个积木数字小。<br>最后搭成4层的金字塔形，必须用完所有的积木。</p>
+<p>下面是两种合格的搭法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   0</span><br><span class="line">  1 2</span><br><span class="line"> 3 4 5</span><br><span class="line">6 7 8 9</span><br><span class="line"></span><br><span class="line">   0</span><br><span class="line">  3 1</span><br><span class="line"> 7 5 2</span><br><span class="line">9 8 6 4</span><br></pre></td></tr></table></figure></p>
 <p>请你计算这样的搭法一共有多少种？</p>
 <hr>
-<h1>概念<a href="https://baike.baidu.com/item/%E5%85%A8%E6%8E%92%E5%88%97" target="_blank" rel="noopener">^1</a></h1>
-<p>全排列(Full Permutation)
-从n个不同元素中任取m(m &lt;= n)个元素，按照一定的顺序排列起来，叫做从n个不同元素中取m个元素的一个排列。当m = n时所有的排列情况叫全排列
-Formula:全排列数 f(n) = n!（定义 0 != 1）</p>
+<h1 id="概念-1"><a href="#概念-1" class="headerlink" title="概念^1"></a>概念<a href="https://baike.baidu.com/item/%E5%85%A8%E6%8E%92%E5%88%97" target="_blank" rel="noopener">^1</a></h1><p>全排列(Full Permutation)<br>从n个不同元素中任取m(m &lt;= n)个元素，按照一定的顺序排列起来，叫做从n个不同元素中取m个元素的一个排列。当m = n时所有的排列情况叫全排列<br>Formula:全排列数 f(n) = n!（定义 0 != 1）</p>
 <hr>
 
       
@@ -602,7 +588,7 @@ Formula:全排列数 f(n) = n!（定义 0 != 1）</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">重拾排列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1、凑算式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">2、搭积木</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">概念^1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重拾排列"><span class="nav-number">1.</span> <span class="nav-text">重拾排列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、凑算式"><span class="nav-number">1.1.</span> <span class="nav-text">1、凑算式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、搭积木"><span class="nav-number">1.2.</span> <span class="nav-text">2、搭积木</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念-1"><span class="nav-number">2.</span> <span class="nav-text">概念^1</span></a></li></ol></div>
             
 
           </div>
