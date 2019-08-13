@@ -108,27 +108,27 @@
 
 
 
-  <meta name="description" content="向量处理机互连网络SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网络">
+  <meta name="description" content="向量处理机 互连网络 SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网">
 <meta name="keywords" content="Computer Architeture">
 <meta property="og:type" content="article">
 <meta property="og:title" content="向量处理机">
 <meta property="og:url" content="https://gmrakari.github.io/2018/08/23/vector_processor/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="向量处理机互连网络SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网络">
+<meta property="og:description" content="向量处理机 互连网络 SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C3.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
-<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C3.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
+<meta property="og:image" content="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
 <meta property="og:updated_time" content="2018-10-02T11:33:57.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="向量处理机">
-<meta name="twitter:description" content="向量处理机互连网络SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网络">
-<meta name="twitter:image" content="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim">
+<meta name="twitter:description" content="向量处理机 互连网络 SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。 基本的单级互连网络 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网">
+<meta name="twitter:image" content="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim">
 
 
 
@@ -402,14 +402,27 @@
       
 
       
-        <h1 id="向量处理机"><a href="#向量处理机" class="headerlink" title="向量处理机"></a><strong>向量处理机</strong></h1><h2 id="互连网络"><a href="#互连网络" class="headerlink" title="互连网络"></a>互连网络</h2><p>SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。</p>
-<h3 id="基本的单级互连网络"><a href="#基本的单级互连网络" class="headerlink" title="基本的单级互连网络"></a>基本的单级互连网络</h3><p> 1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网络 4、蝶形单级网络 主要是前面3种<font size="2">（ps:修改了图片的样式，然后今天数据库的课，我选择不去了，搞完这些东西先) </font><br><br><img src="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="SIMD向量处理机——计算机互连网络.jpg"></p>
-<h4 id="1、基本的单级互连网络"><a href="#1、基本的单级互连网络" class="headerlink" title="1、基本的单级互连网络"></a>1、基本的单级互连网络</h4><p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-1立方体互连网络.jpg"><br>这个是最简单的一种，只要画出一个三维立方体结构就可以写出互连函数了</p>
-<h5 id="下面是Cube（0）-和-Cube（1）的互连方式"><a href="#下面是Cube（0）-和-Cube（1）的互连方式" class="headerlink" title="下面是Cube（0） 和 Cube（1）的互连方式"></a>下面是Cube（0） 和 Cube（1）的互连方式</h5><p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-1立方体互连网络2.jpg"></p>
-<p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C3.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-1立方体互连网络3.jpg"></p>
-<h5 id="2、PM2I单级网络"><a href="#2、PM2I单级网络" class="headerlink" title="2、PM2I单级网络"></a>2、PM2I单级网络</h5><p><img src="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-2PM2I单级网络1.jpg"><br>这个主要是把函数的表达式写出来，通过计算，就知道他们的互连情况了</p>
-<h5 id="PM2I互连网络的部分连接图"><a href="#PM2I互连网络的部分连接图" class="headerlink" title="PM2I互连网络的部分连接图"></a>PM2I互连网络的部分连接图</h5><p><img src="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-2PM2I单级网络2.jpg"></p>
-<h5 id="3、混洗交换单级网络"><a href="#3、混洗交换单级网络" class="headerlink" title="3、混洗交换单级网络"></a>3、混洗交换单级网络</h5><p><img src="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-3混洗交换单级网络1.jpg"><br><img src="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75|imageslim" alt="1-3混洗交换单级网络2.jpg"><br>有单级互连网络，后面也有多级互连网络，但是多级的实在是太复杂，以后有空，我再把多级互连网络给总结出来</p>
+        <h1><strong>向量处理机</strong></h1>
+<h2>互连网络</h2>
+<p>SIMD系统的互连网络的设计目标是：结构不要过分复杂，以降低成本；互连要灵活，以满足算法和应用的需求；处理单元间信息交换所需的传送步数要尽可能少，以提高速度性能；能用规整单一的基本构件组合而成，或者经多次通过或者经多级连接来实现复杂的互连，使模块性好，以便于用VLSI实现并满足系统的可扩充性。</p>
+<h3>基本的单级互连网络</h3>
+<p>1、 立方体单级网络 2、PM2I单级网络 3、混洗交换单级网络 4、蝶形单级网络 主要是前面3种&lt;font size=2&gt;（ps:修改了图片的样式，然后今天数据库的课，我选择不去了，搞完这些东西先) &lt;/font&gt;&lt;br&gt;
+<img src="http://pe3qooug9.bkt.clouddn.com/SIMD%E5%90%91%E9%87%8F%E5%A4%84%E7%90%86%E6%9C%BA%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="SIMD向量处理机——计算机互连网络.jpg"></p>
+<h4>1、基本的单级互连网络</h4>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-1立方体互连网络.jpg">
+这个是最简单的一种，只要画出一个三维立方体结构就可以写出互连函数了</p>
+<h5>下面是Cube（0） 和 Cube（1）的互连方式</h5>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-1立方体互连网络2.jpg"></p>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-1%E7%AB%8B%E6%96%B9%E4%BD%93%E4%BA%92%E8%BF%9E%E7%BD%91%E7%BB%9C3.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-1立方体互连网络3.jpg"></p>
+<h5>2、PM2I单级网络</h5>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-2PM2I单级网络1.jpg">
+这个主要是把函数的表达式写出来，通过计算，就知道他们的互连情况了</p>
+<h5>PM2I互连网络的部分连接图</h5>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-2PM2I%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-2PM2I单级网络2.jpg"></p>
+<h5>3、混洗交换单级网络</h5>
+<p><img src="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C1.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-3混洗交换单级网络1.jpg">
+<img src="http://pe3qooug9.bkt.clouddn.com/1-3%E6%B7%B7%E6%B4%97%E4%BA%A4%E6%8D%A2%E5%8D%95%E7%BA%A7%E7%BD%91%E7%BB%9C2.jpg?imageMogr2/auto-orient/thumbnail/!60p/rotate/360/background/I0ZGRkZGRg==/blur/1x0/quality/75%7Cimageslim" alt="1-3混洗交换单级网络2.jpg">
+有单级互连网络，后面也有多级互连网络，但是多级的实在是太复杂，以后有空，我再把多级互连网络给总结出来</p>
 <p><a href="http://kjwy.5any.com/jsjxtjg/content/06/060105.htm" target="_blank" rel="noopener">参考：重庆大学网络教育</a></p>
 
       
@@ -603,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#向量处理机"><span class="nav-number">1.</span> <span class="nav-text">向量处理机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#互连网络"><span class="nav-number">1.1.</span> <span class="nav-text">互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本的单级互连网络"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本的单级互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、基本的单级互连网络"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1、基本的单级互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下面是Cube（0）-和-Cube（1）的互连方式"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">下面是Cube（0） 和 Cube（1）的互连方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、PM2I单级网络"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">2、PM2I单级网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PM2I互连网络的部分连接图"><span class="nav-number">1.1.1.1.3.</span> <span class="nav-text">PM2I互连网络的部分连接图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、混洗交换单级网络"><span class="nav-number">1.1.1.1.4.</span> <span class="nav-text">3、混洗交换单级网络</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">向量处理机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本的单级互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1、基本的单级互连网络</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">下面是Cube（0） 和 Cube（1）的互连方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.2.</span> <span class="nav-text">2、PM2I单级网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.3.</span> <span class="nav-text">PM2I互连网络的部分连接图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.1.4.</span> <span class="nav-text">3、混洗交换单级网络</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
