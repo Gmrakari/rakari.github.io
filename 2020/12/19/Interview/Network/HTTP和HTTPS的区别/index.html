@@ -108,17 +108,18 @@
 
 
 
-  <meta name="description" content="hou ji bo fa">
+  <meta name="description" content="个人理解到的程度：HTTP是明文传输，而HTTPS是密文传输，使用SSL加密从三大方面来讲    一、介绍HTTP和HTTPS的基本概念   二、为什么会产生区别   三、HTTPS的工作原理  一、介绍HTTP和HTTPS的基本概念HTTP：是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输文本到本地浏览器的传输协议，它可以使浏览器更加">
+<meta name="keywords" content="Interview,Network">
 <meta property="og:type" content="article">
-<meta property="og:title" content="page">
+<meta property="og:title" content="HTTP和HTTPS的区别">
 <meta property="og:url" content="https://gmrakari.github.io/2020/12/19/Interview/Network/HTTP和HTTPS的区别/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="hou ji bo fa">
+<meta property="og:description" content="个人理解到的程度：HTTP是明文传输，而HTTPS是密文传输，使用SSL加密从三大方面来讲    一、介绍HTTP和HTTPS的基本概念   二、为什么会产生区别   三、HTTPS的工作原理  一、介绍HTTP和HTTPS的基本概念HTTP：是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输文本到本地浏览器的传输协议，它可以使浏览器更加">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-19T02:34:16.923Z">
+<meta property="og:updated_time" content="2020-12-21T12:46:15.609Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="page">
-<meta name="twitter:description" content="hou ji bo fa">
+<meta name="twitter:title" content="HTTP和HTTPS的区别">
+<meta name="twitter:description" content="个人理解到的程度：HTTP是明文传输，而HTTPS是密文传输，使用SSL加密从三大方面来讲    一、介绍HTTP和HTTPS的基本概念   二、为什么会产生区别   三、HTTPS的工作原理  一、介绍HTTP和HTTPS的基本概念HTTP：是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输文本到本地浏览器的传输协议，它可以使浏览器更加">
 
 
 
@@ -135,7 +136,7 @@
   };
 </script>
 
-  <title>page | SO MUCH I WANT TO TELL YOU</title>
+  <title>HTTP和HTTPS的区别 | SO MUCH I WANT TO TELL YOU</title>
   
 
 
@@ -317,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">page
+          <h1 class="post-title" itemprop="name headline">HTTP和HTTPS的区别
               
             
           </h1>
@@ -345,6 +346,22 @@
               <time title="创建时间：2020-12-19 10:34:16" itemprop="dateCreated datePublished" datetime="2020-12-19T10:34:16+08:00">2020-12-19</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-12-21 20:46:15" itemprop="dateModified" datetime="2020-12-21T20:46:15+08:00">2020-12-21</time>
+              
             
           </span>
 
@@ -376,7 +393,13 @@
       
 
       
-        
+        <p><strong>个人理解到的程度：HTTP是明文传输，而HTTPS是密文传输，使用SSL加密</strong><br>从三大方面来讲  </p>
+<ul>
+<li>一、介绍HTTP和HTTPS的基本概念  </li>
+<li>二、为什么会产生区别  </li>
+<li>三、HTTPS的工作原理  <h4 id="一、介绍HTTP和HTTPS的基本概念"><a href="#一、介绍HTTP和HTTPS的基本概念" class="headerlink" title="一、介绍HTTP和HTTPS的基本概念"></a>一、介绍HTTP和HTTPS的基本概念</h4><strong>HTTP：</strong><br>是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输文本到本地浏览器的传输协议，它可以使浏览器更加高效，使网络传输减少<br><strong>HTTPS：</strong><br>是以安全为目标的HTTP通道，简单来讲是HTTP的安全版，即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL<br>其作用有两种：<br>其一：<br>&emsp;&emsp;建立一个信息安全通道，来保证数据传输的安全<br>其二：<br>&emsp;&emsp;确认网站的真实性<h4 id="二、为什么会产生区别"><a href="#二、为什么会产生区别" class="headerlink" title="二、为什么会产生区别"></a>二、为什么会产生区别</h4>HTTP协议传输的数据都是未加密的，也就是明文的，因此使用HTTP协议传输隐私信息非常不安全，为了保证这些隐私数据能加密传输，于是网景公司设计了SSL（Secure Sockets Layer）协议用于对HTTP协议传输的数据进行加密，从而就诞生了HTTPS<br><strong>简答来讲，HTTPS协议是由HTTP + SSL 协议构建的可进行加密传输、身份认证的网络协议，要比HTTP协议安全</strong><br>主要区别：<br>其一：<br>HTTPS协议需要到ca申请证书，一般免费证书比较少，因而需要一定费用<br>其二:<br>HTTP是超文本传输协议，信息是明文传输，HTTPS则是具有安全性的SSL加密传输协议<br>其三：<br>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443<br>其四：<br>HTTP的连接很简单，是无状态的;HTTPS协议是由HTTP + SSL 协议构建的可进行加密传输、身份认证的网络协议，要比HTTP协议安全。  <h4 id="三、HTTPS的工作原理"><a href="#三、HTTPS的工作原理" class="headerlink" title="三、HTTPS的工作原理"></a>三、HTTPS的工作原理</h4>HTTPS能够加密信息，以免敏感信息被第三方获取，所以银行网站或者电子邮箱等等安全级别较高的服务都会采用HTTPS协议<br><strong>1、客户端发起HTTPS</strong><br>用户输入一个HTTPS网址，然后连接到server的443端口<br><strong>2、服务端的配置</strong><br>采用HTTPS协议的服务器必须要有一套数字证书，可以自己制作，也可以向组织申请，区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用受信任的公司申请的证书则不会弹出提示页面<br><strong>3、传送证书</strong><br>这个证书其实就是公钥，只是包含了很多信息，如证书的办法机狗，过期时间<br><strong>4、客户端解析证书</strong><br>这部分是由客户端的TLS来完成的，首先会验证公钥是否有效，比如颁发机构，过期时间等等，如果发现异常，则会弹出一个警告框，提示证书存在问题<br>如果证书没有问题，那么就生成一个随机值，然后用证书对该随机值进行加密<br><strong>5、传送加密信息</strong><br>这部分传送的是用证书加密后的随机值，目的就是让服务端得到这个随机值，以后客户端和服务端的通信就可以通过这个随机值来进行加密解密了<br><strong>6、服务端解密信息</strong><br>服务端私钥解密后，得到了客户端传过来的随机值（私钥），然后把内容通过该值进行对称加密，所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。<br><strong>7、传输加密后的信息</strong><br>这部分信息是服务端用私钥加密后的信息，可以在客户端被还原<br><strong>8、客户端解密信息</strong><br>客户端用之前生成的私钥解密服务端传过来的信息，于是获取了解密后的内容，整个过程第三方即使监听到了数据，也束手无策。</li>
+</ul>
+
       
     </div>
 
@@ -393,6 +416,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+            <a href="/tags/Network/" rel="tag"># Network</a>
+          
+        </div>
       
 
       
@@ -456,8 +487,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,7 +547,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -547,6 +589,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、介绍HTTP和HTTPS的基本概念"><span class="nav-number">1.</span> <span class="nav-text">一、介绍HTTP和HTTPS的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、为什么会产生区别"><span class="nav-number">2.</span> <span class="nav-text">二、为什么会产生区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、HTTPS的工作原理"><span class="nav-number">3.</span> <span class="nav-text">三、HTTPS的工作原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
