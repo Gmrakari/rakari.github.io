@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="本人又参加了蓝桥杯了。这次是为第X届准备为了这届不留遗憾，还是想努力一些，多做点题，争取获得一项省级上的奖项。在2018的下半年开学自学了cpp，不过课后练习题做的比较少，所以我选的是个人赛C/C++的程序设计开发. 递归与分治的调用在调用一个函数的过程中又出现直接或间接地调用该函数本身，称为函数的递归调用。Ｃ语言的特点之一就在于允许函数的递归调用 下面是一道经典例题 Hanoi(汉诺塔)问题由上">
+<meta name="keywords" content="递归与分治的调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hanoi(汉诺塔)问题">
+<meta property="og:url" content="https://gmrakari.github.io/2018/12/21/Essay/The_Xth_Lanqiao_recursion/index.html">
+<meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
+<meta property="og:description" content="本人又参加了蓝桥杯了。这次是为第X届准备为了这届不留遗憾，还是想努力一些，多做点题，争取获得一项省级上的奖项。在2018的下半年开学自学了cpp，不过课后练习题做的比较少，所以我选的是个人赛C/C++的程序设计开发. 递归与分治的调用在调用一个函数的过程中又出现直接或间接地调用该函数本身，称为函数的递归调用。Ｃ语言的特点之一就在于允许函数的递归调用 下面是一道经典例题 Hanoi(汉诺塔)问题由上">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E7%AC%AC%E5%8D%81%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB%E7%9A%84%E8%B0%83%E7%94%A8/Hanoi%E5%A1%94%E9%97%AE%E9%A2%98/Algorithm_Recursion_Hanoi_problem.png?x-oss-process=style/Hexo">
+<meta property="og:updated_time" content="2018-12-21T15:51:31.851Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hanoi(汉诺塔)问题">
+<meta name="twitter:description" content="本人又参加了蓝桥杯了。这次是为第X届准备为了这届不留遗憾，还是想努力一些，多做点题，争取获得一项省级上的奖项。在2018的下半年开学自学了cpp，不过课后练习题做的比较少，所以我选的是个人赛C/C++的程序设计开发. 递归与分治的调用在调用一个函数的过程中又出现直接或间接地调用该函数本身，称为函数的递归调用。Ｃ语言的特点之一就在于允许函数的递归调用 下面是一道经典例题 Hanoi(汉诺塔)问题由上">
+<meta name="twitter:image" content="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E7%AC%AC%E5%8D%81%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB%E7%9A%84%E8%B0%83%E7%94%A8/Hanoi%E5%A1%94%E9%97%AE%E9%A2%98/Algorithm_Recursion_Hanoi_problem.png?x-oss-process=style/Hexo">
+
+
+
+
+
+
+  <link rel="canonical" href="https://gmrakari.github.io/2018/12/21/Essay/The_Xth_Lanqiao_recursion/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hanoi(汉诺塔)问题 | SO MUCH I WANT TO TELL YOU</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SO MUCH I WANT TO TELL YOU</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">hou ji bo fa</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2018/12/21/Essay/The_Xth_Lanqiao_recursion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rakari">
+      <meta itemprop="description" content="hou ji bo fa">
+      <meta itemprop="image" content="/images/shadow_avator.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SO MUCH I WANT TO TELL YOU">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hanoi(汉诺塔)问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-21 13:18:04 / 修改时间：23:51:31" itemprop="dateCreated datePublished" datetime="2018-12-21T13:18:04+08:00">2018-12-21</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本人又参加了蓝桥杯了。这次是为第X届准备<br>为了这届不留遗憾，还是想努力一些，多做点题，争取获得一项省级上的奖项。<br>在2018的下半年开学自学了cpp，不过课后练习题做的比较少，所以我选的是个人赛C/C++的程序设计开发.</p>
+<h1 id="递归与分治的调用"><a href="#递归与分治的调用" class="headerlink" title="递归与分治的调用"></a>递归与分治的调用</h1><p>在调用一个函数的过程中又出现直接或间接地调用该函数本身，称为函数的递归调用。Ｃ语言的特点之一就在于允许函数的递归调用</p>
+<p>下面是一道经典例题</p>
+<h2 id="Hanoi-汉诺塔-问题"><a href="#Hanoi-汉诺塔-问题" class="headerlink" title="Hanoi(汉诺塔)问题"></a>Hanoi(汉诺塔)问题</h2><p><img src="https://couldpic.oss-cn-beijing.aliyuncs.com/hexo/%E7%AC%AC%E5%8D%81%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB%E7%9A%84%E8%B0%83%E7%94%A8/Hanoi%E5%A1%94%E9%97%AE%E9%A2%98/Algorithm_Recursion_Hanoi_problem.png?x-oss-process=style/Hexo" alt="Algorithm_Recursion_Hanoi_problem"><br>由上面的分析可知：将ｎ个盘子从Ａ座移到Ｃ座可以分解为以下3个步骤：<br>1.将Ａ上ｎ－１个盘借助Ｃ座先移到Ｂ座上。<br>2.把Ａ座上剩下的一个盘移到Ｃ座上。<br>3.将ｎ－１个盘从Ｂ座借助于Ａ座移到Ｃ座上。</p>
+<p> 下面是c语言的描述<br> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">hanoi</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> one,<span class="keyword">char</span> two,<span class="keyword">char</span> three)</span></span>;</span><br><span class="line">  <span class="keyword">int</span> m;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"input the number of diskes:"</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"The step to moveing %d diskes: \n"</span>,m);</span><br><span class="line">  hanoi(m,<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">hanoi</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">char</span> one,<span class="keyword">char</span> two,<span class="keyword">char</span> three)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">char</span> x,<span class="keyword">char</span> y)</span></span>;</span><br><span class="line">  <span class="keyword">if</span>(n == <span class="number">1</span>)</span><br><span class="line">  move(one,three);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    hanoi(n<span class="number">-1</span>,one,three,two);</span><br><span class="line">    move(one,three);</span><br><span class="line">    hanoi(n<span class="number">-1</span>,two,one,three);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">char</span> x,<span class="keyword">char</span> y)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c--&gt;%c\n"</span>,x,y);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="求两个字符串中最大公共子序列的长度"><a href="#求两个字符串中最大公共子序列的长度" class="headerlink" title="求两个字符串中最大公共子序列的长度"></a>求两个字符串中最大公共子序列的长度</h2><p>例如两个字符串 str1=“abcdefg”与 str2=“hdefghijk”<br>子序列则是从不改变序列的顺序，而从序列中去掉任意的元素而获得新的序列；<br>也就是说，子串中字符的位置必须是连续的，子序列则可以不必连续。</p>
+<p>1、如果str1与str2的长度为0，则最大序列长度为0；<br>2、如果str1与str2的第一个字符相等，则继续在str1与str2的其余字符子串中寻找，并长度加1；<br>F(str1,str2)=f(str1.substring(1),str2.substring(1))+1<br>3、如果str1与str2的第一个字符不相等，则在str1与str2的其余字符子串<br>以及 str1的其余字符子串与str2中进行比较，取其中最大值<br>F(str1,str2)=MAX(f(str1,str2.substring(1)), f(str1.sbstring(1),str2))</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/递归与分治的调用/" rel="tag"># 递归与分治的调用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/02/Essay/Straight_Insertion_Sort/" rel="next" title="直接插入排序">
+                <i class="fa fa-chevron-left"></i> 直接插入排序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/24/Essay/String-reverse/" rel="prev" title="偶遇朋友圈上的字符串反转问题">
+                偶遇朋友圈上的字符串反转问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/shadow_avator.jpg"
+                alt="Rakari" />
+            
+              <p class="site-author-name" itemprop="name">Rakari</p>
+              <p class="site-description motion-element" itemprop="description">hou ji bo fa</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/Gmrakari/rakari.github.io" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:swift.chou@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#递归与分治的调用"><span class="nav-number">1.</span> <span class="nav-text">递归与分治的调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hanoi-汉诺塔-问题"><span class="nav-number">1.1.</span> <span class="nav-text">Hanoi(汉诺塔)问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求两个字符串中最大公共子序列的长度"><span class="nav-number">1.2.</span> <span class="nav-text">求两个字符串中最大公共子序列的长度</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rakari</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">
+  </div>
+
+
+
+  
+
+
+
+  <div class="theme-info">
+  </div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
