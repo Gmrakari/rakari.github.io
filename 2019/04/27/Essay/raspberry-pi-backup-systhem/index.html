@@ -108,17 +108,17 @@
 
 
 
-  <meta name="description" content="RaspberryPi备份系统的方法1、Win32DiskImager来备份树莓派镜像文件2、DiskGenius3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简单，在w">
+  <meta name="description" content="RaspberryPi备份系统的方法 1、Win32DiskImager来备份树莓派镜像文件 2、DiskGenius 3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。 首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简">
 <meta property="og:type" content="article">
 <meta property="og:title" content="raspberry_pi_backup_systhem">
 <meta property="og:url" content="https://gmrakari.github.io/2019/04/27/Essay/raspberry-pi-backup-systhem/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="RaspberryPi备份系统的方法1、Win32DiskImager来备份树莓派镜像文件2、DiskGenius3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简单，在w">
+<meta property="og:description" content="RaspberryPi备份系统的方法 1、Win32DiskImager来备份树莓派镜像文件 2、DiskGenius 3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。 首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-15T05:25:49.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="raspberry_pi_backup_systhem">
-<meta name="twitter:description" content="RaspberryPi备份系统的方法1、Win32DiskImager来备份树莓派镜像文件2、DiskGenius3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简单，在w">
+<meta name="twitter:description" content="RaspberryPi备份系统的方法 1、Win32DiskImager来备份树莓派镜像文件 2、DiskGenius 3、ubuntu下用dd命令 以上这几种，我个人认为第三种最适合我了。 首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简">
 
 
 
@@ -392,14 +392,22 @@
       
 
       
-        <p>RaspberryPi备份系统的方法<br>1、Win32DiskImager来备份树莓派镜像文件<br>2、DiskGenius<br>3、ubuntu下用dd命令</p>
-<p>以上这几种，我个人认为第三种最适合我了。<br>首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简单，在window下备份速度应该较快。</p>
+        <p>RaspberryPi备份系统的方法
+1、Win32DiskImager来备份树莓派镜像文件
+2、DiskGenius
+3、ubuntu下用dd命令</p>
+<p>以上这几种，我个人认为第三种最适合我了。
+首先提一下优缺点，第一种Win32DiskImager，这个是把整个内存卡的内容cp下来（致命弱点），因为如果你的内存卡32G，那拷贝速度，还有还原的时候，需要一张一模一样或者更多内存的内存卡，优点就是操作简单，在window下备份速度应该较快。</p>
 <p>第二种，没有试过，但是感觉，也不太理想。</p>
 <p>第三种，感觉最折腾，但方便以后备份还有让自己从Centos中，第一次在虚拟机上用Ubuntu桌面版，之前好像在服务器上使用过,但体验感极差</p>
 <p>配置了sudo</p>
-<p>df -h查看详细分区（树莓派的系统区）<br>$ sudo dd if=/dev/sdc | gzip&gt;/home/rakari/raspberry.gz</p>
-<p><strong>参考</strong>[制作树苺派SD卡备份镜像——树苺派系统备份与还原指南][来自：<a href="http://blog.lxx1.com/1450]" target="_blank" rel="noopener">http://blog.lxx1.com/1450]</a></p>
-<p>#更新<br>树莓派自带copy sd卡的操作 十分方便<br>直接用读卡器插上tf卡 用树莓派里面一个sd card copy的软件 （VNC或者直接用连接显示器可以打开看到该软件）<br>之前折腾那么多，还不如这个软件强大…</p>
+<p>df -h查看详细分区（树莓派的系统区）
+$ sudo dd if=/dev/sdc | gzip&gt;/home/rakari/raspberry.gz</p>
+<p><strong>参考</strong>[制作树苺派SD卡备份镜像——树苺派系统备份与还原指南][来自：http://blog.lxx1.com/1450]</p>
+<p>#更新
+树莓派自带copy sd卡的操作 十分方便
+直接用读卡器插上tf卡 用树莓派里面一个sd card copy的软件 （VNC或者直接用连接显示器可以打开看到该软件）
+之前折腾那么多，还不如这个软件强大...</p>
 
       
     </div>
