@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="第二次遇见我不知道最小生成树的两种方法——普里姆（Prim）和克鲁斯克尔算法（Kruskal）居然是贪心算法的基本问题，这是2018年最后一次上算法课的时候，李老师跟我们讲的时候，我才反应过来。">
-<meta name="keywords" content="Data Structure">
+  <meta name="description" content="主要从五个方面 阐述1.全局静态变量 2.局部静态变量 3.静态函数 4.类的静态成员 5.类的静态函数 1.全局静态变量在全局变量前上关键词static，全局变量就定义成一个全局静态变量静态存储区，在整个运行期间一直存在初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非它被显式初始化）作用域：全局静态变量在声明它的文件之外是不可见的，准确地来说是从定义之处开始，到文件">
+<meta name="keywords" content="Interview,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贪心算法（贪婪算法）">
-<meta property="og:url" content="http://gmrakari.github.io/2019/01/15/Essay/greedy-algorithm/index.html">
+<meta property="og:title" content="static关键字的作用">
+<meta property="og:url" content="http://gmrakari.github.io/2020/12/29/Interview/C++/说一下static关键字的作用/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="第二次遇见我不知道最小生成树的两种方法——普里姆（Prim）和克鲁斯克尔算法（Kruskal）居然是贪心算法的基本问题，这是2018年最后一次上算法课的时候，李老师跟我们讲的时候，我才反应过来。">
+<meta property="og:description" content="主要从五个方面 阐述1.全局静态变量 2.局部静态变量 3.静态函数 4.类的静态成员 5.类的静态函数 1.全局静态变量在全局变量前上关键词static，全局变量就定义成一个全局静态变量静态存储区，在整个运行期间一直存在初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非它被显式初始化）作用域：全局静态变量在声明它的文件之外是不可见的，准确地来说是从定义之处开始，到文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-15T05:46:33.013Z">
+<meta property="og:updated_time" content="2020-12-29T08:11:34.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贪心算法（贪婪算法）">
-<meta name="twitter:description" content="第二次遇见我不知道最小生成树的两种方法——普里姆（Prim）和克鲁斯克尔算法（Kruskal）居然是贪心算法的基本问题，这是2018年最后一次上算法课的时候，李老师跟我们讲的时候，我才反应过来。">
+<meta name="twitter:title" content="static关键字的作用">
+<meta name="twitter:description" content="主要从五个方面 阐述1.全局静态变量 2.局部静态变量 3.静态函数 4.类的静态成员 5.类的静态函数 1.全局静态变量在全局变量前上关键词static，全局变量就定义成一个全局静态变量静态存储区，在整个运行期间一直存在初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非它被显式初始化）作用域：全局静态变量在声明它的文件之外是不可见的，准确地来说是从定义之处开始，到文件">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gmrakari.github.io/2019/01/15/Essay/greedy-algorithm/"/>
+  <link rel="canonical" href="http://gmrakari.github.io/2020/12/29/Interview/C++/说一下static关键字的作用/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>贪心算法（贪婪算法） | SO MUCH I WANT TO TELL YOU</title>
+  <title>static关键字的作用 | SO MUCH I WANT TO TELL YOU</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gmrakari.github.io/2019/01/15/Essay/greedy-algorithm/">
+    <link itemprop="mainEntityOfPage" href="http://gmrakari.github.io/2020/12/29/Interview/C++/说一下static关键字的作用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rakari">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">贪心算法（贪婪算法）
+          <h1 class="post-title" itemprop="name headline">static关键字的作用
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2019-01-15 13:42:26 / 修改时间：13:46:33" itemprop="dateCreated datePublished" datetime="2019-01-15T13:42:26+08:00">2019-01-15</time>
+              <time title="创建时间：2020-12-29 15:37:29 / 修改时间：16:11:34" itemprop="dateCreated datePublished" datetime="2020-12-29T15:37:29+08:00">2020-12-29</time>
             
 
             
@@ -381,7 +381,15 @@
       
 
       
-        <h1 id="第二次遇见"><a href="#第二次遇见" class="headerlink" title="第二次遇见"></a>第二次遇见</h1><p>我不知道最小生成树的两种方法——普里姆（Prim）和克鲁斯克尔算法（Kruskal）居然是贪心算法的基本问题，这是2018年最后一次上算法课的时候，李老师跟我们讲的时候，我才反应过来。</p>
+        <h1 id="主要从五个方面-阐述"><a href="#主要从五个方面-阐述" class="headerlink" title="主要从五个方面 阐述"></a>主要从五个方面 阐述</h1><p><strong>1.全局静态变量</strong></p>
+<p><strong>2.局部静态变量</strong></p>
+<p><strong>3.静态函数</strong></p>
+<p><strong>4.类的静态成员</strong></p>
+<p><strong>5.类的静态函数</strong></p>
+<h2 id="1-全局静态变量"><a href="#1-全局静态变量" class="headerlink" title="1.全局静态变量"></a><strong>1.全局静态变量</strong></h2><p>在全局变量前上关键词static，全局变量就定义成一个全局静态变量<br>静态存储区，在整个运行期间一直存在<br>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非它被显式初始化）<br>作用域：全局静态变量在声明它的文件之外是不可见的，准确地来说是从定义之处开始，到文件结束  </p>
+<p><strong>2.局部静态变量</strong><br>在局部变量之前加上关键字static，局部变量就成为一个局部静态变量<br>内存中的位置：静态存储区<br>初始化：未经初始化的全局静态变量会被自动初始化为0（自动对象的值是任意的，除非它被显式初始化）<br>作用域：作用域仍为局部作用域，当定义它的函数或者语句块结束的时候，作用域结束。但是当局部静态变量离开作用域后，并没有销毁，而是仍然驻留在内存当中，只不过我们不能再对它进行访问，直到该函数再次被调用，并且值不变<br><strong>3.静态函数</strong><br>在函数返回类型前加static，函数就定义为静态函数。函数的定义和声明在默认情况下都是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用。<br>warning:不要在头文件中声明static的全局函数，不要在cpp内声明非static的全局函数，如果你要在多个cpp中复用该函数，就把它的声明提到头文件里去，否则cp内部声明需加上static修饰  </p>
+<p><strong>4.类的静态成员</strong><br>在类中，静态成员可以实现多个对象之间的数据共享，并且使用静态数据成员还不会破坏隐藏的原则，即保证了安全性。因此，静态成员是类的所有对象中共享的成员，而不是某个对象的成员。对多个对象来说，静态数据成员只存储一处，供所有对象共用。<br><strong>5.类的静态函数</strong><br>静态成员函数和静态数据成员一样，它们都属于类的静态成员，它们都不是对象成员。因此，对静态成员的引用不需要用对象名。<br>在静态成员函数的实现中不能直接引用类中说明的非静态成员，可以引用类中说明的静态成员（这点非常重要）。如果静态成员函数要引用非静态成员时，可通过对象来引用。从中可看出，调用静态成员函数使用如下格式：&lt;类名&gt;::&lt;静态成员函数名&gt;(&lt;参数表&gt;)  </p>
+<p>  copy by :牛客网</p>
 
       
     </div>
@@ -402,7 +410,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -415,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/24/Essay/String-reverse/" rel="next" title="偶遇朋友圈上的字符串反转问题">
-                <i class="fa fa-chevron-left"></i> 偶遇朋友圈上的字符串反转问题
+              <a href="/2020/12/19/Interview/Network/HTTP和HTTPS的区别/" rel="next" title="HTTP和HTTPS的区别">
+                <i class="fa fa-chevron-left"></i> HTTP和HTTPS的区别
               </a>
             
           </div>
@@ -424,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/16/Essay/Dynamic-programming/" rel="prev" title="动态规划（背包问题）">
-                动态规划（背包问题） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -586,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第二次遇见"><span class="nav-number">1.</span> <span class="nav-text">第二次遇见</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要从五个方面-阐述"><span class="nav-number">1.</span> <span class="nav-text">主要从五个方面 阐述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-全局静态变量"><span class="nav-number">1.1.</span> <span class="nav-text">1.全局静态变量</span></a></li></ol></li></ol></div>
             
 
           </div>
