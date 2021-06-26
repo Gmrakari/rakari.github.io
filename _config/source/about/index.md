@@ -20,4 +20,7 @@ A:Persons are their own person:ambitious and freethinking
 R:Person feel things strongly and their rich,intense inner life emanate outward  
 I:Persons are a compassionate person who feels things deeply  
 
+** 揭示Rakari变为Gmrakari的原因 **
+使用了google & gmail,加一个Gm的前缀表示感谢google & gmail和纪念
+
 再次感谢NexT
