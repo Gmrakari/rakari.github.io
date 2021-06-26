@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配 2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换 3、new不仅分配一段内存，而且会调用构造函数，malloc不会 4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会 5、">
+  <meta name="description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换3、new不仅分配一段内存，而且会调用构造函数，malloc不会4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会5、new是">
 <meta name="keywords" content="Interview,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="new和malloc的区别">
 <meta property="og:url" content="https://gmrakari.github.io/2021/03/07/Interview/C++/new和malloc的区别/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配 2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换 3、new不仅分配一段内存，而且会调用构造函数，malloc不会 4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会 5、">
+<meta property="og:description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换3、new不仅分配一段内存，而且会调用构造函数，malloc不会4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会5、new是">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2021-03-07T01:09:19.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="new和malloc的区别">
-<meta name="twitter:description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配 2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换 3、new不仅分配一段内存，而且会调用构造函数，malloc不会 4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会 5、">
+<meta name="twitter:description" content="1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换3、new不仅分配一段内存，而且会调用构造函数，malloc不会4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会5、new是">
 
 
 
@@ -381,14 +381,7 @@
       
 
       
-        <p>1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配<br>
-2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换<br>
-3、new不仅分配一段内存，而且会调用构造函数，malloc不会<br>
-4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会<br>
-5、new是一个操作符可以重载，malloc是一个库函数<br>
-6、malloc分配的内存不够的时候，可以用realloc扩容。new没有这种操作<br>
-7、new如果分配失败了会抛出bad_malloc的异常，而malloc失败了会返回NULL<br>
-8、申请数组时：new[]一次分配所有内存，多次调用构造函数，搭配使用delete[]，delete[]多次调用析构函数，销毁数组中的每个对象。而malloc则只能sizeof(int) * n</p>
+        <p>1、new分配内存按照数据类型进行分配，malloc分配内存按照指定的大小分配<br>2、new返回的是指定对象的指针，而malloc返回的是void*，因此malloc的返回值一般都需要进行类型转换<br>3、new不仅分配一段内存，而且会调用构造函数，malloc不会<br>4、new分配的内存要用delete销毁，malloc要用free来销毁；delete销毁的时候会调用对象的析构函数，而free不会<br>5、new是一个操作符可以重载，malloc是一个库函数<br>6、malloc分配的内存不够的时候，可以用realloc扩容。new没有这种操作<br>7、new如果分配失败了会抛出bad_malloc的异常，而malloc失败了会返回NULL<br>8、申请数组时：new[]一次分配所有内存，多次调用构造函数，搭配使用delete[]，delete[]多次调用析构函数，销毁数组中的每个对象。而malloc则只能sizeof(int) * n  </p>
 
       
     </div>
@@ -501,7 +494,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

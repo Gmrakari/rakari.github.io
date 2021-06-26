@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
+  <meta name="description" content="两招掌握最基本的解题思路动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。摘取推文内容如下：Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3…wn，每个货物的价值是v1,v2,v3…vn，w和v没有">
 <meta name="keywords" content="Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划（背包问题）">
 <meta property="og:url" content="https://gmrakari.github.io/2019/01/16/Essay/Dynamic-programming/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
+<meta property="og:description" content="两招掌握最基本的解题思路动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。摘取推文内容如下：Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3…wn，每个货物的价值是v1,v2,v3…vn，w和v没有">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-01-16T05:30:10.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态规划（背包问题）">
-<meta name="twitter:description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
+<meta name="twitter:description" content="两招掌握最基本的解题思路动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。摘取推文内容如下：Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3…wn，每个货物的价值是v1,v2,v3…vn，w和v没有">
 
 
 
@@ -381,17 +381,9 @@
       
 
       
-        <h1>两招掌握最基本的解题思路</h1>
-<p>动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题
-背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。
-摘取推文内容如下：
-Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...vn，w和v没有任何关系，请求背包能装下的最大价值。
-这个我也没写出来，也给了个思路，首先使用Q4的方法得到货物重量数组的全组合（包括拆分成小数组的全组合），然后计算每一个组合的价值，并进行排序，然后遍历数组，找到价值较高切刚好能装进背包m的组合。
-[作者：_杨溜溜][来自：https://segmentfault.com/a/1190000017049146]</p>
+        <h1 id="两招掌握最基本的解题思路"><a href="#两招掌握最基本的解题思路" class="headerlink" title="两招掌握最基本的解题思路"></a>两招掌握最基本的解题思路</h1><p>动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题<br>背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。<br>摘取推文内容如下：<br>Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3…wn，每个货物的价值是v1,v2,v3…vn，w和v没有任何关系，请求背包能装下的最大价值。<br>这个我也没写出来，也给了个思路，首先使用Q4的方法得到货物重量数组的全组合（包括拆分成小数组的全组合），然后计算每一个组合的价值，并进行排序，然后遍历数组，找到价值较高切刚好能装进背包m的组合。<br>[作者：_杨溜溜][来自：<a href="https://segmentfault.com/a/1190000017049146]" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017049146]</a></p>
 <p>好了，下面说我在学校听课收获的内容和总结。</p>
-<h2>一、动态规划算法求解10背包</h2>
-<h2>二、最长公共子序列过程图解</h2>
-
+<h2 id="一、动态规划算法求解10背包"><a href="#一、动态规划算法求解10背包" class="headerlink" title="一、动态规划算法求解10背包"></a>一、动态规划算法求解10背包</h2><h2 id="二、最长公共子序列过程图解"><a href="#二、最长公共子序列过程图解" class="headerlink" title="二、最长公共子序列过程图解"></a>二、最长公共子序列过程图解</h2>
       
     </div>
 
@@ -510,7 +502,7 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -595,7 +587,7 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">两招掌握最基本的解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">一、动态规划算法求解10背包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">二、最长公共子序列过程图解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#两招掌握最基本的解题思路"><span class="nav-number">1.</span> <span class="nav-text">两招掌握最基本的解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、动态规划算法求解10背包"><span class="nav-number">1.1.</span> <span class="nav-text">一、动态规划算法求解10背包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、最长公共子序列过程图解"><span class="nav-number">1.2.</span> <span class="nav-text">二、最长公共子序列过程图解</span></a></li></ol></li></ol></div>
             
 
           </div>
