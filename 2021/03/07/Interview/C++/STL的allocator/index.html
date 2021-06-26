@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。在C++中，其内存配置和释放如下：new运算分两个阶段：    （1）、调用::operator new配置内存    （2）、调用对象构造函数构造对象内容delete运算分两个阶段：    （1）、调用对象析构函数    （2）、调用::operator delete释放内存   为了精密分工，STL allocator将两个阶段操作区分开">
+  <meta name="description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。 在C++中，其内存配置和释放如下： new运算分两个阶段： 	（1）、调用::operator new配置内存 	（2）、调用对象构造函数构造对象内容 delete运算分两个阶段： 	（1）、调用对象析构函数 	（2）、调用::operator delete释放内存 为了精密分工，STL allocator将两个阶段操作区分开来:内存配置有">
 <meta name="keywords" content="Interview,C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STL分配器">
-<meta property="og:url" content="http://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/index.html">
+<meta property="og:url" content="https://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。在C++中，其内存配置和释放如下：new运算分两个阶段：    （1）、调用::operator new配置内存    （2）、调用对象构造函数构造对象内容delete运算分两个阶段：    （1）、调用对象析构函数    （2）、调用::operator delete释放内存   为了精密分工，STL allocator将两个阶段操作区分开">
+<meta property="og:description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。 在C++中，其内存配置和释放如下： new运算分两个阶段： 	（1）、调用::operator new配置内存 	（2）、调用对象构造函数构造对象内容 delete运算分两个阶段： 	（1）、调用对象析构函数 	（2）、调用::operator delete释放内存 为了精密分工，STL allocator将两个阶段操作区分开来:内存配置有">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2021-03-07T01:37:39.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STL分配器">
-<meta name="twitter:description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。在C++中，其内存配置和释放如下：new运算分两个阶段：    （1）、调用::operator new配置内存    （2）、调用对象构造函数构造对象内容delete运算分两个阶段：    （1）、调用对象析构函数    （2）、调用::operator delete释放内存   为了精密分工，STL allocator将两个阶段操作区分开">
+<meta name="twitter:description" content="STL的分配器用于封装STL容器在内存管理上的底层细节。 在C++中，其内存配置和释放如下： new运算分两个阶段： 	（1）、调用::operator new配置内存 	（2）、调用对象构造函数构造对象内容 delete运算分两个阶段： 	（1）、调用对象析构函数 	（2）、调用::operator delete释放内存 为了精密分工，STL allocator将两个阶段操作区分开来:内存配置有">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/"/>
+  <link rel="canonical" href="https://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/"/>
 
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/">
+    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2021/03/07/Interview/C++/STL的allocator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rakari">
@@ -381,9 +381,16 @@
       
 
       
-        <p>STL的分配器用于封装STL容器在内存管理上的底层细节。<br>在C++中，其内存配置和释放如下：<br>new运算分两个阶段：<br>    （1）、调用::operator new配置内存<br>    （2）、调用对象构造函数构造对象内容<br>delete运算分两个阶段：<br>    （1）、调用对象析构函数<br>    （2）、调用::operator delete释放内存  </p>
-<p>为了精密分工，STL allocator将两个阶段操作区分开来:内存配置有alloc::allocate()负责，内存释放由alloc::deallocate()负责；对象构造由::construct()负责，对象析构由::destroy()负责  </p>
-<p>同时为了提升内存管理的效率，减少申请笑内存造成的内存碎片问题，SGI STL采用了两级配置器，当分配的空间大小超过128B时，会使用第一级空间配置器；当分配的空间大小小于128B时，将使用第二级空间配置器。第一级空间配置器直接使用malloc()、realloc()、free()函数进行内存空间的分配和释放，而第二级空间配置器采用了内存池技术，通过空间链表来管理内存。  </p>
+        <p>STL的分配器用于封装STL容器在内存管理上的底层细节。<br>
+在C++中，其内存配置和释放如下：<br>
+new运算分两个阶段：<br>
+	（1）、调用::operator new配置内存<br>
+	（2）、调用对象构造函数构造对象内容<br>
+delete运算分两个阶段：<br>
+	（1）、调用对象析构函数<br>
+	（2）、调用::operator delete释放内存</p>
+<p>为了精密分工，STL allocator将两个阶段操作区分开来:内存配置有alloc::allocate()负责，内存释放由alloc::deallocate()负责；对象构造由::construct()负责，对象析构由::destroy()负责</p>
+<p>同时为了提升内存管理的效率，减少申请笑内存造成的内存碎片问题，SGI STL采用了两级配置器，当分配的空间大小超过128B时，会使用第一级空间配置器；当分配的空间大小小于128B时，将使用第二级空间配置器。第一级空间配置器直接使用malloc()、realloc()、free()函数进行内存空间的分配和释放，而第二级空间配置器采用了内存池技术，通过空间链表来管理内存。</p>
 
       
     </div>

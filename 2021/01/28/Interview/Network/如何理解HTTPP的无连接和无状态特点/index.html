@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。   在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。   Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头">
+  <meta name="description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。 如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。 在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。 Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头部字段">
 <meta name="keywords" content="Interview,Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何理解HTTPP的无连接和无状态特点">
-<meta property="og:url" content="http://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/index.html">
+<meta property="og:url" content="https://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/index.html">
 <meta property="og:site_name" content="SO MUCH I WANT TO TELL YOU">
-<meta property="og:description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。   在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。   Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头">
+<meta property="og:description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。 如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。 在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。 Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头部字段">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2021-01-28T04:02:33.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何理解HTTPP的无连接和无状态特点">
-<meta name="twitter:description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。   在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。   Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头">
+<meta name="twitter:description" content="HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。 如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。 在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。 Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头部字段">
 
 
 
 
 
 
-  <link rel="canonical" href="http://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/"/>
+  <link rel="canonical" href="https://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/"/>
 
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/">
+    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2021/01/28/Interview/Network/如何理解HTTPP的无连接和无状态特点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rakari">
@@ -381,20 +381,23 @@
       
 
       
-        <p>HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。<br>如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。  </p>
-<p>在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。  </p>
-<p>Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头部字段”Set-Cookie”）,客户端每次向服务器发送请求的时候都需要带上这些信息（通过HTTP请求头部字段”Cookie”）。  </p>
-<p><strong>无连接</strong><br>限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。  </p>
-<p>HTTP的设计者有意利用这种特点将协议设计为请求时建连接、请求完释放连接，以尽快将资源释放出来服务其他客户端。  </p>
-<p>Keep-Alive被提出解决效率低的问题：Keep-Alive功能使客户端到服务器端的连接持续有效，当出现对服务器后继请求时，Keep-Alive功能避免了建立或者重新建立连接。  </p>
-<p>这样一来，客户端和服务器之间的HTTP连接就会被保持，不会断开（超过Keep-Alive规定的时间，意外断电等情况除外），当客户端发送另外一个请求时，就使用这条已经建立的连接。  </p>
-<p><strong>无状态</strong>  </p>
-<p>无状态是指：协议对于事物处理没有记忆能力，服务器不知道客户端是什么状态。即我们给服务器发送HTTP请求之后，服务器根据请求，会给我们发送数据过来，但是，发送完，不会记录任何信息。<br>TTP是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive没能改变这个结果。  </p>
-<p>两种用于保持HTTP连接状态的技术：一个是Cookie，另一个是Session  </p>
-<p>Cookie可以保持登陆信息到用户下次与服务器的会话，换句话说，下次访问同一网站时，用户会发现不必输入用户名和密码就已经登陆了。  </p>
-<p>与Cookie相对的一个解决方案是Session，它是通过服务器来保持状态的  </p>
-<p>当客户端访问服务器时，服务器根据需求设置Session，将会话信息保存在服务器上，同时将标识Seesion的SessionId传递给客户端浏览器，浏览器将这个SessionId保存在内存中，我们称之为无过期时间的Cookie。浏览器关闭后，这个Cookie就会被清掉，它不会存在于用户的Cookie临时文件。  </p>
-<p>以后浏览器每次请求都会额外加上这个参数值，服务器会根据这个SessionId，就能取地客户端的数据信息。  </p>
+        <p>HTTP协议是一种无状态的协议，即每个HTTP请求之间没有任何上下文关系。<br>
+如果服务器处理后续HTTP请求时需要用到前面的HTTP请求的相关信息，客户端必须重传这些信息。</p>
+<p>在交互式Web应用程序兴起之后，HTTP协议的这种无状态特性就显得不适应了，因此我们要使用额外的手段来保持HTTP连接状态，常见的解决方法就是Cookie。</p>
+<p>Cookie是服务器发送给客户端的特殊信息（通过HTTP应答的头部字段&quot;Set-Cookie&quot;）,客户端每次向服务器发送请求的时候都需要带上这些信息（通过HTTP请求头部字段&quot;Cookie&quot;）。</p>
+<p><strong>无连接</strong><br>
+限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+<p>HTTP的设计者有意利用这种特点将协议设计为请求时建连接、请求完释放连接，以尽快将资源释放出来服务其他客户端。</p>
+<p>Keep-Alive被提出解决效率低的问题：Keep-Alive功能使客户端到服务器端的连接持续有效，当出现对服务器后继请求时，Keep-Alive功能避免了建立或者重新建立连接。</p>
+<p>这样一来，客户端和服务器之间的HTTP连接就会被保持，不会断开（超过Keep-Alive规定的时间，意外断电等情况除外），当客户端发送另外一个请求时，就使用这条已经建立的连接。</p>
+<p><strong>无状态</strong></p>
+<p>无状态是指：协议对于事物处理没有记忆能力，服务器不知道客户端是什么状态。即我们给服务器发送HTTP请求之后，服务器根据请求，会给我们发送数据过来，但是，发送完，不会记录任何信息。<br>
+TTP是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive没能改变这个结果。</p>
+<p>两种用于保持HTTP连接状态的技术：一个是Cookie，另一个是Session</p>
+<p>Cookie可以保持登陆信息到用户下次与服务器的会话，换句话说，下次访问同一网站时，用户会发现不必输入用户名和密码就已经登陆了。</p>
+<p>与Cookie相对的一个解决方案是Session，它是通过服务器来保持状态的</p>
+<p>当客户端访问服务器时，服务器根据需求设置Session，将会话信息保存在服务器上，同时将标识Seesion的SessionId传递给客户端浏览器，浏览器将这个SessionId保存在内存中，我们称之为无过期时间的Cookie。浏览器关闭后，这个Cookie就会被清掉，它不会存在于用户的Cookie临时文件。</p>
+<p>以后浏览器每次请求都会额外加上这个参数值，服务器会根据这个SessionId，就能取地客户端的数据信息。</p>
 <p>如果客户端浏览器意外关闭，服务器保存的 Session 数据不是立即释放，此时数据还会存在，只要我们知道那个 SessionId，就可以继续通过请求获得此 Session 的信息，因为此时后台的 Session 还存在，当然我们可以设置一个 Session 超时时间，一旦超过规定时间没有客户端请求时，服务器就会清除对应 SessionId 的 Session 信息。</p>
 
       
