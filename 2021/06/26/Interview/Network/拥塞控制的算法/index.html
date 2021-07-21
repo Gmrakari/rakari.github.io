@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="什么是 TCP 拥塞控制TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TCP 拥">
+  <meta name="description" content="什么是 TCP 拥塞控制 TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。 简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度 对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TC">
 <meta name="keywords" content="Interview,Network">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP拥塞控制算法">
 <meta property="og:url" content="https://gmrakari.github.io/2021/06/26/Interview/Network/拥塞控制的算法/index.html">
 <meta property="og:site_name" content="拉卡里大海">
-<meta property="og:description" content="什么是 TCP 拥塞控制TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TCP 拥">
+<meta property="og:description" content="什么是 TCP 拥塞控制 TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。 简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度 对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TC">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2021-06-26T04:48:29.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP拥塞控制算法">
-<meta name="twitter:description" content="什么是 TCP 拥塞控制TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TCP 拥">
+<meta name="twitter:description" content="什么是 TCP 拥塞控制 TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。 简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式： 水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度 对应的网络名词就是： 网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟 [面试头条你需要懂的 TC">
 
 
 
@@ -381,10 +381,13 @@
       
 
       
-        <p>什么是 TCP 拥塞控制<br>TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。<br>简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式：</p>
-<p>水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度<br>对应的网络名词就是：</p>
+        <p>什么是 TCP 拥塞控制
+TCP 拥塞控制的目标是最大化利用网络上瓶颈链路的带宽。
+简单来说是将网络链路比喻成一根水管，如果我们希望尽可能地使用网络传输数据，方法就是给水管注水，就有如下公式：</p>
+<p>水管内的水的数量 = 水管的容积 = 水管粗细 × 水管长度
+对应的网络名词就是：</p>
 <p>网络内尚未被确认收到的数据包数量 = 网络链路上能容纳的数据包数量 = 链路带宽 × 往返延迟</p>
-<p>[面试头条你需要懂的 TCP 拥塞控制原理]<a href="https://zhuanlan.zhihu.com/p/76023663" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/76023663</a></p>
+<p>[面试头条你需要懂的 TCP 拥塞控制原理]https://zhuanlan.zhihu.com/p/76023663</p>
 
       
     </div>
@@ -429,6 +432,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/07/21/Interview/C++/C++的顶层const和底层const/" rel="prev" title="C++的顶层const和底层const">
+                C++的顶层const和底层const <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -493,7 +500,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
-<meta name="keywords" content="Data Structure">
+  <meta name="description" content="概念区分顶层const  指的是const修饰的变量本身是一个常量，无法修改，指的是指针，就是*号的右边  底层const  指的是const修饰的变量所指向的对象是一个常量，指的是所指变量，就是*号的左边  举个例子12345int a = 10;int *const b1 = &amp;amp;a;//顶层const,b1本身是一个常量const int* b2 = &amp;amp;a;//底层const,">
+<meta name="keywords" content="Interview,C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划（背包问题）">
-<meta property="og:url" content="https://gmrakari.github.io/2019/01/16/Essay/Dynamic-programming/index.html">
+<meta property="og:title" content="C++的顶层const和底层const">
+<meta property="og:url" content="https://gmrakari.github.io/2021/07/21/Interview/C++/C++的顶层const和底层const/index.html">
 <meta property="og:site_name" content="拉卡里大海">
-<meta property="og:description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
+<meta property="og:description" content="概念区分顶层const  指的是const修饰的变量本身是一个常量，无法修改，指的是指针，就是*号的右边  底层const  指的是const修饰的变量所指向的对象是一个常量，指的是所指变量，就是*号的左边  举个例子12345int a = 10;int *const b1 = &amp;amp;a;//顶层const,b1本身是一个常量const int* b2 = &amp;amp;a;//底层const,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-16T05:30:10.590Z">
+<meta property="og:updated_time" content="2021-07-21T14:31:06.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划（背包问题）">
-<meta name="twitter:description" content="两招掌握最基本的解题思路 动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题 背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。 摘取推文内容如下： Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...">
+<meta name="twitter:title" content="C++的顶层const和底层const">
+<meta name="twitter:description" content="概念区分顶层const  指的是const修饰的变量本身是一个常量，无法修改，指的是指针，就是*号的右边  底层const  指的是const修饰的变量所指向的对象是一个常量，指的是所指变量，就是*号的左边  举个例子12345int a = 10;int *const b1 = &amp;amp;a;//顶层const,b1本身是一个常量const int* b2 = &amp;amp;a;//底层const,">
 
 
 
 
 
 
-  <link rel="canonical" href="https://gmrakari.github.io/2019/01/16/Essay/Dynamic-programming/"/>
+  <link rel="canonical" href="https://gmrakari.github.io/2021/07/21/Interview/C++/C++的顶层const和底层const/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>动态规划（背包问题） | 拉卡里大海</title>
+  <title>C++的顶层const和底层const | 拉卡里大海</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2019/01/16/Essay/Dynamic-programming/">
+    <link itemprop="mainEntityOfPage" href="https://gmrakari.github.io/2021/07/21/Interview/C++/C++的顶层const和底层const/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gmrakari">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">动态规划（背包问题）
+          <h1 class="post-title" itemprop="name headline">C++的顶层const和底层const
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="创建时间：2019-01-16 10:46:54 / 修改时间：13:30:10" itemprop="dateCreated datePublished" datetime="2019-01-16T10:46:54+08:00">2019-01-16</time>
+              <time title="创建时间：2021-07-21 22:13:52 / 修改时间：22:31:06" itemprop="dateCreated datePublished" datetime="2021-07-21T22:13:52+08:00">2021-07-21</time>
             
 
             
@@ -381,16 +381,31 @@
       
 
       
-        <h1>两招掌握最基本的解题思路</h1>
-<p>动态规划的相关算法基本问题，老师讲了两个主要大块：动态规划算法求解10背包和最长公共子序列过程图解问题
-背包问题，我在最近的程序员面试推文中，阅读过一名前端的程序员面试过程中遇到面试官问的背包问题，他没有解出来，只是说了过程。
-摘取推文内容如下：
-Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为w1,w2,w3...wn，每个货物的价值是v1,v2,v3...vn，w和v没有任何关系，请求背包能装下的最大价值。
-这个我也没写出来，也给了个思路，首先使用Q4的方法得到货物重量数组的全组合（包括拆分成小数组的全组合），然后计算每一个组合的价值，并进行排序，然后遍历数组，找到价值较高切刚好能装进背包m的组合。
-[作者：_杨溜溜][来自：https://segmentfault.com/a/1190000017049146]</p>
-<p>好了，下面说我在学校听课收获的内容和总结。</p>
-<h2>一、动态规划算法求解10背包</h2>
-<h2>二、最长公共子序列过程图解</h2>
+        <h1 id="概念区分"><a href="#概念区分" class="headerlink" title="概念区分"></a>概念区分</h1><p><strong>顶层const</strong></p>
+<ul>
+<li>指的是const修饰的变量本身是一个常量，无法修改，指的是指针，就是*号的右边</li>
+</ul>
+<p><strong>底层const</strong></p>
+<ul>
+<li>指的是const修饰的变量所指向的对象是一个常量，指的是所指变量，就是*号的左边</li>
+</ul>
+<h1 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;<span class="keyword">int</span> *<span class="keyword">const</span> b1 = &amp;a;<span class="comment">//顶层const,b1本身是一个常量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* b2 = &amp;a;<span class="comment">//底层const,b2本身可变，所指的对象是常量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> b3 = <span class="number">20</span>;<span class="comment">//顶层const,b3是常量不可变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">const</span> b4 = &amp;a;<span class="comment">//前面是底层，后面const是顶层，b4不可变</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; b5 = a;<span class="comment">//用于声明引用变量，都是底层const</span></span><br></pre></td></tr></table></figure>
+<h1 id="区分作用"><a href="#区分作用" class="headerlink" title="区分作用"></a>区分作用</h1><ul>
+<li>执行对象拷贝时有限制，常量的底层const不能赋值给非常量的底层const</li>
+<li>使用命名的强制类型转换函数const_cast时，只能改变运算对象的底层const</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> a;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *a;</span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> a;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>int const a和const int a均表示定义常量类型a</li>
+<li>const int <em>a,其中a为指向int型变量的指针,const在</em>左侧，表示a指向不可变常量，(看成const(*a),对引用加const)</li>
+<li>int *const a,依旧是指针类型，表示a为指向整型数据的常指针。(看成const(a), 对指针const)</li>
+</ul>
+<p>By:[阿秀的校招笔记]</p>
+<h1 id="重点笔记"><a href="#重点笔记" class="headerlink" title="重点笔记"></a>重点笔记</h1><ul>
+<li>常量指针:可以修改指针指向的位置，不可以修改指针的值</li>
+<li>指针常量：可以修改指针的值，不可以修改指针指向的位置</li>
+</ul>
+<p>1-const前固值，后固址<br>2-const离谁近谁不变</p>
 
       
     </div>
@@ -411,7 +426,9 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            <a href="/tags/Interview/" rel="tag"># Interview</a>
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -424,8 +441,8 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/Essay/greedy-algorithm/" rel="next" title="贪心算法（贪婪算法）">
-                <i class="fa fa-chevron-left"></i> 贪心算法（贪婪算法）
+              <a href="/2021/06/26/Interview/Network/拥塞控制的算法/" rel="next" title="TCP拥塞控制算法">
+                <i class="fa fa-chevron-left"></i> TCP拥塞控制算法
               </a>
             
           </div>
@@ -433,10 +450,6 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/08/Essay/perm/" rel="prev" title="关于全排列的问题">
-                关于全排列的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -595,7 +608,7 @@ Q5 我现在有一个背包，容量为m，然后有n个货物，重量分别为
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">两招掌握最基本的解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">一、动态规划算法求解10背包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">二、最长公共子序列过程图解</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念区分"><span class="nav-number">1.</span> <span class="nav-text">概念区分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举个例子"><span class="nav-number">2.</span> <span class="nav-text">举个例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#区分作用"><span class="nav-number">3.</span> <span class="nav-text">区分作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重点笔记"><span class="nav-number">4.</span> <span class="nav-text">重点笔记</span></a></li></ol></div>
             
 
           </div>

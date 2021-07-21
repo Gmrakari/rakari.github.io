@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="希尔排序（文末附有C语言实现方法）写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。首先看一下，官方的表达希尔排序的思想：先取定一个小于n的整数d1作">
+  <meta name="description" content="希尔排序（文末附有C语言实现方法） 写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。 首先看一下，官方的表达 希尔排序的思想：先取定一个小于n的整数">
 <meta name="keywords" content="Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="希尔排序">
 <meta property="og:url" content="https://gmrakari.github.io/2018/10/25/Essay/shell-sort/index.html">
 <meta property="og:site_name" content="拉卡里大海">
-<meta property="og:description" content="希尔排序（文末附有C语言实现方法）写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。首先看一下，官方的表达希尔排序的思想：先取定一个小于n的整数d1作">
+<meta property="og:description" content="希尔排序（文末附有C语言实现方法） 写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。 首先看一下，官方的表达 希尔排序的思想：先取定一个小于n的整数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-11-08T14:59:55.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="希尔排序">
-<meta name="twitter:description" content="希尔排序（文末附有C语言实现方法）写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。首先看一下，官方的表达希尔排序的思想：先取定一个小于n的整数d1作">
+<meta name="twitter:description" content="希尔排序（文末附有C语言实现方法） 写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。 首先看一下，官方的表达 希尔排序的思想：先取定一个小于n的整数">
 
 
 
@@ -393,9 +393,13 @@
       
 
       
-        <h1 id="希尔排序（文末附有C语言实现方法）"><a href="#希尔排序（文末附有C语言实现方法）" class="headerlink" title="希尔排序（文末附有C语言实现方法）"></a>希尔排序（文末附有C语言实现方法）</h1><p>写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。<br>首先看一下，官方的表达<br>希尔排序的思想：先取定一个小于n的整数d1作为第一个增量，把数组R中的全部元素分成d1个组，所有下标距离为d1的倍数的元素放在同一组中，即R[1],R[1+d1],R[1+2d1],…为第一组，R[2],R[2+d1],R[2+2d1],…为第二组,…,接着在各组内进行直接插入排序；然后再取d2(d2&lt;d1)为第二个增量，重复上述分组和排序，直到所取得增量 dt = 1(dt&lt;dt-1&lt;…&lt;d2&lt;d1),把所有得元素放再同一组中进行直接插入排序为止。</p>
+        <h1>希尔排序（文末附有C语言实现方法）</h1>
+<p>写出这个主要是平常练习中经常出现希尔排序的题目，这次考试中，又出现了两次（一道选择题，一道算法题），题目我只记得要求，就是进行希尔排序时，选择不同的增量，第一趟排序的结果的怎样。看到这个，我真的是一脸懵逼，只能回来，再一次看一下书，好好复习一下，下次问到就根据这些印象，可能这些问题就可以迎刃而解了。
+首先看一下，官方的表达
+希尔排序的思想：先取定一个小于n的整数d1作为第一个增量，把数组R中的全部元素分成d1个组，所有下标距离为d1的倍数的元素放在同一组中，即R[1],R[1+d1],R[1+2d1],...为第一组，R[2],R[2+d1],R[2+2d1],...为第二组,...,接着在各组内进行直接插入排序；然后再取d2(d2&lt;d1)为第二个增量，重复上述分组和排序，直到所取得增量 dt = 1(dt&lt;dt-1&lt;...&lt;d2&lt;d1),把所有得元素放再同一组中进行直接插入排序为止。</p>
 <p>案例分析</p>
-<p>这里我贴出C语言的代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellInsert</span><span class="params">(SeqList R,<span class="keyword">int</span> dk,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">for</span>(i = dl + <span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">if</span>(R[i].key &lt; R[i-dk].key)</span><br><span class="line">    &#123;</span><br><span class="line">      R[<span class="number">0</span>] = R[i];</span><br><span class="line">      j = i-dk;</span><br><span class="line">      <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; R[<span class="number">0</span>].key &lt; R[j].key)</span><br><span class="line">      &#123;</span><br><span class="line">        R[j + dk] = R[j];</span><br><span class="line">        j = j - dk;</span><br><span class="line">      &#125;</span><br><span class="line">      R[j + dk] = R[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(SeqList R,<span class="keyword">int</span> d[],<span class="keyword">int</span> t,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> k;</span><br><span class="line">  <span class="keyword">for</span>(k = <span class="number">0</span>;k&lt;t;k++)</span><br><span class="line">    ShellInsert(R,d[k],n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里我贴出C语言的代码
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellInsert</span><span class="params">(SeqList R,<span class="keyword">int</span> dk,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,j;</span><br><span class="line">  <span class="keyword">for</span>(i = dl + <span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">if</span>(R[i].key &lt; R[i-dk].key)</span><br><span class="line">    &#123;</span><br><span class="line">      R[<span class="number">0</span>] = R[i];</span><br><span class="line">      j = i-dk;</span><br><span class="line">      <span class="keyword">while</span>(j&gt;<span class="number">0</span> &amp;&amp; R[<span class="number">0</span>].key &lt; R[j].key)</span><br><span class="line">      &#123;</span><br><span class="line">        R[j + dk] = R[j];</span><br><span class="line">        j = j - dk;</span><br><span class="line">      &#125;</span><br><span class="line">      R[j + dk] = R[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(SeqList R,<span class="keyword">int</span> d[],<span class="keyword">int</span> t,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> k;</span><br><span class="line">  <span class="keyword">for</span>(k = <span class="number">0</span>;k&lt;t;k++)</span><br><span class="line">    ShellInsert(R,d[k],n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -515,7 +519,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -600,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#希尔排序（文末附有C语言实现方法）"><span class="nav-number">1.</span> <span class="nav-text">希尔排序（文末附有C语言实现方法）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">希尔排序（文末附有C语言实现方法）</span></a></li></ol></div>
             
 
           </div>
